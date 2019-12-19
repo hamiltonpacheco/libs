@@ -1,0 +1,12 @@
+@Library('sre-pipeline-lib@master') _
+
+environment {
+        TOKENJENKINS = credentials("svc_jenkins")
+    }
+
+createStructure(
+  RepoName: RepoName,
+  GroupID: GroupID,
+  TemplateXML: TemplateXML,
+  Token: env.TOKENJENKINS
+)

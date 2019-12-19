@@ -1,0 +1,28 @@
+@Library('sre-pipeline-lib@master') _
+
+// parameters {
+//         string(name: author, defaultValue: false, description: '')
+//         string(name: branch, defaultValue: false, description: '')
+//         string(name: commitid, defaultValue: false, description: '')
+//         string(name: committag, defaultValue: false, description: '')
+//         string(name: jobname, defaultValue: false, description: '')
+//         string(name: repourl, defaultValue: false, description: '')
+//         string(name: team, defaultValue: false, description: '')
+
+//     }
+
+environment {
+        PGPASSWORD = credentials("JobCounterPSQL")
+    }
+
+jobCounter(
+  stack: team,
+  author: author,
+  branch: branch,
+  commit: commit,
+  commitTag: commitTag,
+  repoUrl: repoUrl,
+  jobname: jobname,
+  psql_pass: PGPASSWORD
+)
+

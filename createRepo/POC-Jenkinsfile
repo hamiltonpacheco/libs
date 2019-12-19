@@ -1,0 +1,12 @@
+@Library('sre-pipeline-lib@master') _
+
+environment {
+    JPRIVATE = credentials("jenkins-id_rsa-private")
+    JPUBLIC = credentials("jenkins-id_rsa-public")
+}
+
+createStructure(
+  RepoName: RepoName,
+  GroupID: GroupID,
+  HostWebHook: HostWebHook,
+)
